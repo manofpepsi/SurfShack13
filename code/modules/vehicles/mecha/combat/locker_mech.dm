@@ -6,8 +6,8 @@
 	icon = 'icons/mob/rideables/long_mechs.dmi'
 	icon_state = "lockermech"
 	base_icon_state = "lockermech"
-	movedelay = 9
-	max_integrity = 95 //its a closet
+	movedelay = 4
+	max_integrity = 100 //its a closet
 	force = 10
 	armor_type = /datum/armor/locker_mech
 	max_temperature = 20000
@@ -33,9 +33,14 @@
 	)
 
 /datum/armor/locker_mech
-	melee = 15
-	fire = 100
-	acid = 100
+	melee = 20
+	bullet = 10
+	laser = 10
+	energy = 0
+	bomb = 10
+	bio = 0
+	fire = 70
+	acid = 60
 
 /obj/vehicle/sealed/mecha/locker_mech/Initialize(mapload, built_manually)
 	. = ..()
@@ -49,8 +54,8 @@
 /obj/item/mecha_parts/mecha_equipment/tension_belt
 	name = "Tension Belt"
 	desc = "A makeshift support belt made of fabric scraps and rods thats usually jammed into mech to keep it upright. pulling on it causes the mech to violently shutter back and forward."
-	icon_state = "mecha_equip"
-	equip_cooldown = 15
+	icon_state = "tension_belt"
+	equip_cooldown = 4 SECONDS
 	energy_drain = 0.01 * STANDARD_CELL_CHARGE
 	range = MECHA_MELEE
 	toolspeed = 0.3
@@ -75,18 +80,16 @@
 	if(!do_after(source, 4 SECONDS, target_loc, extra_checks = CALLBACK(src, PROC_REF(check_mech), chassis.dir, chassis.loc)))
 		qdel(LZ)
 		return
-
-	source.visible_message(span_danger("[src] falls over!"))
-	chassis.fall_and_crush(target_loc, chassis.force, 0, 0, 3 SECONDS, chassis.dir, BRUTE, MELEE, 90)
-	chassis.pixel_y = -16
-	// fall_and_crush proc doesnt knock down target (because the attack is so weak) so we handle that.
-	for(var/mob/living/L in target_loc)
-		if(L == source)
-			continue
-		L.Knockdown(3 SECONDS, TRUE)
-	chassis.take_damage(chassis.force/2, BRUTE, MELEE) //damage mech
-	source.apply_damage(chassis.force/2, BRUTE) //damage passenger
-	source.Paralyze(2.2 SECONDS) //stop "mech" from moving while on ground
+	if(chassis.fall_and_crush(target_loc, chassis.force, 0, 0, 3 SECONDS, chassis.dir, BRUTE, MELEE, 90) & SUCCESSFULLY_FELL_OVER)
+		chassis.pixel_y = -12
+		// fall_and_crush proc doesnt knock down target (because the attack is so weak) so we handle that.
+		for(var/mob/living/L in target_loc)
+			if(L == source)
+				continue
+			L.Knockdown(3 SECONDS, TRUE)
+		chassis.take_damage(chassis.force/2, BRUTE, MELEE) //damage mech
+		source.apply_damage(chassis.force/2, BRUTE) //damage passenger
+		source.Paralyze(2.2 SECONDS) //stop "mech" from moving while on ground
 	qdel(LZ)
 	return ..()
 
