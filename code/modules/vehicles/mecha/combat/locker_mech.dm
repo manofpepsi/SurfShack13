@@ -6,7 +6,7 @@
 	icon = 'icons/mob/rideables/long_mechs.dmi'
 	icon_state = "lockermech"
 	base_icon_state = "lockermech"
-	movedelay = 4
+	movedelay = 3 // im going to touch you
 	max_integrity = 100 //its a closet
 	force = 10
 	armor_type = /datum/armor/locker_mech
