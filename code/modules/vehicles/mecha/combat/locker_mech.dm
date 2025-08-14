@@ -11,7 +11,6 @@
 	force = 10
 	armor_type = /datum/armor/locker_mech
 	max_temperature = 20000
-  wreckage = /obj/structure/closet
 	destruction_sleep_duration = 40
 	exit_delay = 40
 	accesses = list(ACCESS_MAINT_TUNNELS)
@@ -45,6 +44,11 @@
 /obj/vehicle/sealed/mecha/locker_mech/Initialize(mapload, built_manually)
 	. = ..()
 	AddElementTrait(TRAIT_WADDLING, REF(src), /datum/element/waddling)
+
+/obj/vehicle/sealed/mecha/locker_mech/Destroy()
+	new /obj/structure/closet(loc)
+	return ..()
+
 
 /obj/item/mecha_parts/mecha_equipment/tension_belt
 	name = "Tension Belt"
