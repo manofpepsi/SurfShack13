@@ -14,7 +14,6 @@
 	destruction_sleep_duration = 40
 	exit_delay = 40
 	accesses = list(ACCESS_MAINT_TUNNELS)
-	wreckage = /obj/structure/mecha_wreckage/honker
 	mecha_flags = IS_ENCLOSED | HAS_LIGHTS
 	mech_type = EXOSUIT_MODULE_LOCKER_MECH
 	max_equip_by_category = list(
