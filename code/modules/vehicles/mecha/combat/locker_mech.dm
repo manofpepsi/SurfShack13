@@ -59,8 +59,8 @@
 	range = MECHA_MELEE
 	toolspeed = 0.3
 	harmful = TRUE
-  detachable = false
 	mech_flags = EXOSUIT_MODULE_LOCKER_MECH
+	detachable = FALSE
 
 /obj/effect/landingzone_locker_mech
 	icon = 'icons/obj/supplypods_32x32.dmi'
