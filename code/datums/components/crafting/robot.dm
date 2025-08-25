@@ -215,6 +215,6 @@
 				/obj/item/stack/sticky_tape = 4, //to make it airtight
 				/obj/item/flashlight = 1, //For the mech light
 				/obj/item/stack/sheet/cloth = 5) // for tension belt
-	time = 20 SECONDS
+	time = 30 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WELDER, TOOL_WIRECUTTER, TOOL_WRENCH, TOOL_MULTITOOL)
 	category = CAT_ROBOT
