@@ -9,7 +9,7 @@
 	icon_state = "lockermech"
 	base_icon_state = "lockermech"
 	movedelay = 2
-	max_integrity = 150 //its a closet
+	max_integrity = 125 //its a closet
 	force = 12
 	armor_type = /datum/armor/locker_mech
 	max_temperature = 20000
@@ -91,7 +91,7 @@
 	source.visible_message(span_alertwarning("[chassis] starts rocking back and forward, It looks like its going to fall over!"),\
 		span_warning("you start rocking [chassis] forwards and backwards, trying to tip it over"))
 	playsound(chassis, 'sound/effects/clang.ogg', 50)
-	if(!do_after(source, 3 SECONDS, target_loc, extra_checks = CALLBACK(src, PROC_REF(check_mech), chassis.dir, chassis.loc)))
+	if(!do_after(source, 4 SECONDS, target_loc, extra_checks = CALLBACK(src, PROC_REF(check_mech), chassis.dir, chassis.loc)))
 		qdel(LZ)
 		return
 	var/fall_flags = chassis.fall_and_crush(target_loc, chassis.force, 0, 0, 3 SECONDS, chassis.dir, BRUTE, MELEE, TILT_AMOUNT)
@@ -105,8 +105,8 @@
 					continue
 				L.Knockdown(3 SECONDS, TRUE)
 		else //fell over but didnt crush a mob, so the force is applied to mech
-			chassis.take_damage(chassis.force*0.6, BRUTE, MELEE) //damage mech
-			source.apply_damage(chassis.force*0.6, BRUTE) //damage passenger
+			chassis.take_damage(chassis.force*0.7, BRUTE, MELEE) //damage mech
+			source.apply_damage(chassis.force*0.7, BRUTE) //damage passenger
 			source.emote("scream")
 	qdel(LZ)
 	return ..()
