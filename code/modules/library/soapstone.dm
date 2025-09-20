@@ -25,20 +25,18 @@
 	if(remaining_uses != -1)
 		. += "It has [remaining_uses] uses left."
 
-/obj/item/soapstone/afterattack(atom/target, mob/user, proximity)
+/obj/item/soapstone/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	. = ..()
-	var/turf/T = get_turf(target)
-	if(!proximity)
+
+	if(!good_chisel_message_location(target))
+		to_chat(user, span_warning("It's not appropriate to engrave on [target]."))
 		return
 
-	var/obj/structure/chisel_message/existing_message = locate() in T
+	var/obj/structure/chisel_message/existing_message = \
+		istype(target, /obj/structure/chisel_message) ? target : locate() in target
 
 	if(!remaining_uses && !existing_message)
 		to_chat(user, span_warning("[src] is too worn out to use."))
-		return
-
-	if(!good_chisel_message_location(T))
-		to_chat(user, span_warning("It's not appropriate to engrave on [T]."))
 		return
 
 	if(existing_message)
@@ -58,16 +56,16 @@
 		to_chat(user, span_notice("You decide to not engrave anything."))
 		return
 
-	if(!target.Adjacent(user) && locate(/obj/structure/chisel_message) in T)
+	if(!target.Adjacent(user) && locate(/obj/structure/chisel_message) in target)
 		to_chat(user, span_warning("Someone wrote here before you chose! Find another spot."))
 		return
 	playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
-	user.visible_message(span_notice("[user] starts engraving a message into [T]..."), span_notice("You start engraving a message into [T]..."), span_hear("You hear a chipping sound."))
-	if(can_use() && do_after(user, tool_speed, target = T) && can_use()) //This looks messy but it's actually really clever!
-		if(!locate(/obj/structure/chisel_message) in T)
-			user.visible_message(span_notice("[user] leaves a message for future spacemen!"), span_notice("You engrave a message into [T]!"), span_hear("You hear a chipping sound."))
+	user.visible_message(span_notice("[user] starts engraving a message into [target]..."), span_notice("You start engraving a message into [target]..."), span_hear("You hear a chipping sound."))
+	if(can_use() && do_after(user, tool_speed, target = target) && can_use())
+		if(!locate(/obj/structure/chisel_message) in target)
+			user.visible_message(span_notice("[user] leaves a message for future spacemen!"), span_notice("You engrave a message into [target]!"), span_hear("You hear a chipping sound."))
 			playsound(loc, 'sound/items/gavel.ogg', 50, TRUE, -1)
-			var/obj/structure/chisel_message/M = new(T)
+			var/obj/structure/chisel_message/M = new(target)
 			M.register(user, message)
 			remove_use()
 
@@ -106,13 +104,8 @@ but only permanently removed with the curator's soapstone.
 /obj/item/soapstone/empty
 	remaining_uses = 0
 
-/proc/good_chisel_message_location(turf/T)
-	if(!T)
-		. = FALSE
-	else if(!(isfloorturf(T) || iswallturf(T)))
-		. = FALSE
-	else
-		. = TRUE
+/proc/good_chisel_message_location(target)
+	return isfloorturf(target) || iswallturf(target) || istype(target, /obj/structure/chisel_message)
 
 /obj/structure/chisel_message
 	name = "engraved message"
@@ -129,6 +122,7 @@ but only permanently removed with the curator's soapstone.
 	var/creator_name
 	var/realdate
 	var/map
+	var/round_color
 	var/persists = TRUE
 	var/list/like_keys = list()
 	var/list/dislike_keys = list()
@@ -137,15 +131,23 @@ but only permanently removed with the curator's soapstone.
 /obj/structure/chisel_message/Initialize(mapload)
 	. = ..()
 	SSpersistence.chisel_messages += src
-	var/turf/T = get_turf(src)
-	original_turf = T
+	var/turf/target = get_turf(src)
+	original_turf = target
 
-	if(!good_chisel_message_location(T))
+	if(!good_chisel_message_location(target))
 		persists = FALSE
 		return INITIALIZE_HINT_QDEL
 
 	if(like_keys.len - dislike_keys.len <= DELETE_AT)
 		persists = FALSE
+		return
+
+	var/list/random_hsv = list(
+		rand() * 360,
+		100 - (rand() * 50),
+		100 - (rand() * 30),
+	)
+	round_color = hsv2rgb(random_hsv)
 
 /obj/structure/chisel_message/proc/register(mob/user, newmessage)
 	hidden_message = newmessage
@@ -167,12 +169,11 @@ but only permanently removed with the curator's soapstone.
 				type = "rays",
 				size = 40,
 				density = 7,
-				color = COLOR_SOAPSTONE_GLOW,
+				color = COLOR_SOAPSTONE_RAYS,
 				threshold = 0.3,
 				factor = 0.3,
 			))
 		animate(get_filter("soap_rays"), offset = LOOP_OFFSET, time = 1 HOURS, loop = INF_LOOP)
-		return
 
 	if (like_keys.len - dislike_keys.len < WORSHIPPED && !isnull(get_filter("soap_rays")))
 		remove_filter("soap_rays")
@@ -181,7 +182,7 @@ but only permanently removed with the curator's soapstone.
 /obj/structure/chisel_message/update_icon()
 	. = ..()
 
-	var/new_color = COLOR_SOAPSTONE_NORMAL
+	var/new_color = round_color
 	var/likeness = like_keys.len - dislike_keys.len
 	if (likeness < 0)
 		new_color = COLOR_SOAPSTONE_WANING
