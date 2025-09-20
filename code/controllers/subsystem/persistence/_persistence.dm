@@ -7,9 +7,7 @@ SUBSYSTEM_DEF(persistence)
 	flags = SS_NO_FIRE
 
 	var/list/obj/structure/chisel_message/chisel_messages = list()
-	///tattoo stories that we're saving.
 	var/list/prison_tattoos_to_save = list()
-	///tattoo stories that have been selected for this round.
 	var/list/prison_tattoos_to_use = list()
 	var/list/saved_messages = list()
 	var/list/saved_modes = list(1,2,3)

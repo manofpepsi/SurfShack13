@@ -1,14 +1,14 @@
-#define POINT_THRESHOLD_PLASTIC -INFINITY
-#define POINT_THRESHOLD_IRON 1
-#define POINT_THRESHOLD_BRONZE 15
-#define POINT_THRESHOLD_SILVER 30
-#define POINT_THRESHOLD_GOLD 45
-#define POINT_THRESHOLD_DIAMOND 60
+#define SACRED 25
+#define WORSHIPPED 50
+
+#define DELETE_AT -5
+#define INF_LOOP -1
+#define LOOP_OFFSET 1000
 
 /obj/item/soapstone
 	name = "soapstone"
 	desc = "Leave informative messages for the crew, including the crew of future shifts!\nEven if out of uses, it can still be used to remove messages.\n(Not suitable for engraving on shuttles, off station or on cats. Side effects may include prompt beatings, psychotic clown incursions, and/or orbital bombardment.)"
-	icon = 'icons/obj/items_and_weapons.dmi'
+	icon = 'icons/obj/art/artstuff.dmi'
 	icon_state = "soapstone"
 	throw_speed = 3
 	throw_range = 5
@@ -55,7 +55,7 @@
 
 	var/message = stripped_input(user, "What would you like to engrave?", "Leave a message")
 	if(!message)
-		to_chat(user, span_notice("You decide not to engrave anything."))
+		to_chat(user, span_notice("You decide to not engrave anything."))
 		return
 
 	if(!target.Adjacent(user) && locate(/obj/structure/chisel_message) in T)
@@ -117,7 +117,7 @@ but only permanently removed with the curator's soapstone.
 /obj/structure/chisel_message
 	name = "engraved message"
 	desc = "A message from a past traveler."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "soapstone_message"
 	layer = LATTICE_LAYER
 	density = FALSE
@@ -132,11 +132,7 @@ but only permanently removed with the curator's soapstone.
 	var/persists = TRUE
 	var/list/like_keys = list()
 	var/list/dislike_keys = list()
-
 	var/turf/original_turf
-
-	/// Total vote count at or below which we won't persist.
-	var/delete_at = -5
 
 /obj/structure/chisel_message/Initialize(mapload)
 	. = ..()
@@ -148,7 +144,7 @@ but only permanently removed with the curator's soapstone.
 		persists = FALSE
 		return INITIALIZE_HINT_QDEL
 
-	if(like_keys.len - dislike_keys.len <= delete_at)
+	if(like_keys.len - dislike_keys.len <= DELETE_AT)
 		persists = FALSE
 
 /obj/structure/chisel_message/proc/register(mob/user, newmessage)
@@ -156,45 +152,60 @@ but only permanently removed with the curator's soapstone.
 	creator_name = user.real_name
 	creator_key = user.ckey
 	realdate = world.realtime
-	map = SSmapping.config.map_name
+	map = SSmapping.current_map.map_name
 	update_appearance()
+	update_filters()
+
+/obj/structure/chisel_message/update_filters()
+	. = ..()
+
+	if (like_keys.len - dislike_keys.len >= WORSHIPPED && isnull(get_filter("soap_rays")))
+		//1000 is the repeat...
+		add_filter(name ="soap_rays",
+			priority = 1,
+			params = list(
+				type = "rays",
+				size = 40,
+				density = 7,
+				color = COLOR_SOAPSTONE_GLOW,
+				threshold = 0.3,
+				factor = 0.3,
+			))
+		animate(get_filter("soap_rays"), offset = LOOP_OFFSET, time = 1 HOURS, loop = INF_LOOP)
+		return
+
+	if (like_keys.len - dislike_keys.len < WORSHIPPED && !isnull(get_filter("soap_rays")))
+		remove_filter("soap_rays")
+
 
 /obj/structure/chisel_message/update_icon()
 	. = ..()
 
-	var/newcolor = COLOR_SOAPSTONE_PLASTIC
-	switch(like_keys.len - dislike_keys.len)
-		if(POINT_THRESHOLD_PLASTIC to POINT_THRESHOLD_IRON-1)
-			newcolor = COLOR_SOAPSTONE_PLASTIC
-		if(POINT_THRESHOLD_IRON to POINT_THRESHOLD_BRONZE-1)
-			newcolor = COLOR_SOAPSTONE_IRON
-		if(POINT_THRESHOLD_BRONZE to POINT_THRESHOLD_SILVER-1)
-			newcolor = COLOR_SOAPSTONE_BRONZE
-		if(POINT_THRESHOLD_SILVER to POINT_THRESHOLD_GOLD-1)
-			newcolor = COLOR_SOAPSTONE_SILVER
-		if(POINT_THRESHOLD_GOLD to POINT_THRESHOLD_DIAMOND-1)
-			newcolor = COLOR_SOAPSTONE_GOLD
-		if(POINT_THRESHOLD_DIAMOND to INFINITY)
-			newcolor = COLOR_SOAPSTONE_DIAMOND
+	var/new_color = COLOR_SOAPSTONE_NORMAL
+	var/likeness = like_keys.len - dislike_keys.len
+	if (likeness < 0)
+		new_color = COLOR_SOAPSTONE_WANING
+	else if (likeness >= SACRED)
+		new_color = COLOR_SOAPSTONE_SACRED
 
-	add_atom_colour("[newcolor]", FIXED_COLOUR_PRIORITY)
-	set_light_color("[newcolor]")
-	set_light(1)
+	add_atom_colour("[new_color]", FIXED_COLOUR_PRIORITY)
+	set_light(l_range = 2,
+		l_power = 0.7,
+		l_color = new_color,
+		l_angle = 360,
+		l_on = TRUE)
 
 /obj/structure/chisel_message/update_name()
-	switch(like_keys.len - dislike_keys.len)
-		if(POINT_THRESHOLD_PLASTIC to POINT_THRESHOLD_IRON-1)
-			name = "plastic [initial(name)]"
-		if(POINT_THRESHOLD_IRON to POINT_THRESHOLD_BRONZE-1)
-			name = "iron [initial(name)]"
-		if(POINT_THRESHOLD_BRONZE to POINT_THRESHOLD_SILVER-1)
-			name = "bronze [initial(name)]"
-		if(POINT_THRESHOLD_SILVER to POINT_THRESHOLD_GOLD-1)
-			name = "silver [initial(name)]"
-		if(POINT_THRESHOLD_GOLD to POINT_THRESHOLD_DIAMOND-1)
-			name = "gold [initial(name)]"
-		if(POINT_THRESHOLD_DIAMOND to INFINITY)
-			name = "diamond [initial(name)]"
+	var/likeness = like_keys.len - dislike_keys.len
+	if (likeness < 0)
+		name = "waning [initial(name)]"
+	else if (likeness < SACRED)
+		name = initial(name)
+	else if (likeness >= SACRED && likeness < WORSHIPPED)
+		name = "sacred [initial(name)]"
+	else
+		name = "worshipped [initial(name)]"
+
 	return ..()
 
 /obj/structure/chisel_message/proc/pack()
@@ -203,7 +214,7 @@ but only permanently removed with the curator's soapstone.
 	data["creator_name"] = creator_name
 	data["creator_key"] = creator_key
 	data["realdate"] = realdate
-	data["map"] = SSmapping.config.map_name
+	data["map"] = SSmapping.current_map.map_name
 	data["x"] = original_turf.x
 	data["y"] = original_turf.y
 	data["z"] = original_turf.z
@@ -233,6 +244,7 @@ but only permanently removed with the curator's soapstone.
 	if(isturf(newloc))
 		forceMove(newloc)
 	update_appearance()
+	update_filters()
 
 /obj/structure/chisel_message/examine(mob/user)
 	. = ..()
@@ -240,7 +252,7 @@ but only permanently removed with the curator's soapstone.
 
 /obj/structure/chisel_message/Destroy()
 	if(persists)
-		SSpersistence.SaveChiselMessage(src)
+		SSpersistence.save_chisel_message(src)
 	SSpersistence.chisel_messages -= src
 	return ..()
 
@@ -265,7 +277,7 @@ but only permanently removed with the curator's soapstone.
 	var/list/data = list()
 
 	data["hidden_message"] = hidden_message
-	data["realdate"] = SQLtime(realdate)
+	data["realdate"] = ISOtime(realdate)
 	data["num_likes"] = like_keys.len
 	data["num_dislikes"] = dislike_keys.len
 	data["is_creator"] = user.ckey == creator_key
@@ -325,4 +337,11 @@ but only permanently removed with the curator's soapstone.
 				return
 
 	update_appearance()
-	persists = like_keys.len - dislike_keys.len > delete_at
+	update_filters()
+	persists = like_keys.len - dislike_keys.len > DELETE_AT
+
+#undef SACRED
+#undef WORSHIPPED
+#undef DELETE_AT
+#undef INF_LOOP
+#undef LOOP_OFFSET
