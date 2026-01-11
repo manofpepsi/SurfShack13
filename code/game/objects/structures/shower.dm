@@ -324,6 +324,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	M.throw_at(get_edge_target_turf(src, src.dir), 4, 3)
 	if(ishuman(M) && !M.stat && prob(50))
 		playsound(M, 'surfshack13/sound/effects/tom_yell.ogg', 50, FALSE)
+	//damage self, like a grille
+	take_damage(2, BURN, FIRE, sound_effect = FALSE)
 	//after shock, turn off shower
 	intended_on = FALSE
 	update_actually_on(intended_on)
