@@ -316,13 +316,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 		return
 	if(!electrocute_mob(M, cable_node, src, 1, TRUE))
 		return
-	M.visible_message(span_danger("Sparks poor out of the shower and send [M] flying!"),\
+	M.visible_message(span_danger("Sparks fly from the shower and send [M] flying!"),\
 		span_userdanger("The shower was electrocuted, the shock sends you flying!"))
 	var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
 	sparks.set_up(3, 1, src)
 	sparks.start()
 	M.throw_at(get_edge_target_turf(src, src.dir), 4, 3)
-	if(ishuman(M) && prob(15))
+	if(ishuman(M) && !M.stat && prob(50))
 		playsound(M, 'surfshack13/sound/effects/tom_yell.ogg', 50, FALSE)
 	//after shock, turn off shower
 	intended_on = FALSE
