@@ -6521,6 +6521,7 @@
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
+#include "surfshack13\frogui.dm"
 #include "surfshack13\code\__DEFINES\bloodsuckers.dm"
 #include "surfshack13\code\__DEFINES\roles.dm"
 #include "surfshack13\code\__DEFINES\traits\bloodsucker_trait_sources.dm"
