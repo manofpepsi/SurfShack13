@@ -13,7 +13,10 @@
 	new /obj/item/bowling_ball(src)
 	new /obj/item/bowling_ball(src)
 	new /obj/item/bowling_ball(src)
-	new /obj/item/bowling_ball(src)
+	new /obj/item/bowling_pins(src)
+	new /obj/item/bowling_pins(src)
+	new /obj/item/bowling_pins(src)
+	new /obj/item/bowling_pins(src)
 
 /datum/uplink_item/dangerous/bowling
 	name = "Bowling kit"
