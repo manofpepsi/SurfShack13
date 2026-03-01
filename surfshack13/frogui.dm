@@ -31,14 +31,13 @@ SUBSYSTEM_DEF(frogui)
 		client_uis[C] = list()
 	if(isnull(atom_ui_clients[source]))
 		atom_ui_clients[source] = list()
-	//ui already exist
 	var/source_ref = ref(source)
 
-	if(client_uis[C].Find(source_ref))
-		return
+	if(!client_uis[C].Find(source_ref))
+		client_uis[C] += source_ref
+		atom_ui_clients[source] += C
 
-	client_uis[C] += source_ref
-	atom_ui_clients[source] += C
+
 	C << browse(replacetextEx(ui,\
 		"/* ref insert */", "const ref = [json_encode(source_ref)];"),\
 		 "window=[source_ref];[params]")
