@@ -6592,6 +6592,7 @@
 #include "surfshack13\code\modules\swarmers\swarmer_mob.dm"
 #include "surfshack13\code\modules\swarmers\swarmer_objs.dm"
 #include "surfshack13\code\modules\swarmers\swarmer_ruleset.dm"
+#include "surfshack13\code\modules\wikishit\xenobio_manual.dm"
 #include "surfshack13\code\objects\decals\wizcrayon_decals.dm"
 #include "surfshack13\code\objects\items\wizcrayon.dm"
 #include "surfshack13\nanites\code\ai_nanite_remote.dm"
