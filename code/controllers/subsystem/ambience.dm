@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(ambience)
 	flags = SS_BACKGROUND|SS_NO_INIT
 	priority = FIRE_PRIORITY_AMBIENCE
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-	wait = 1 SECONDS
+	wait = 1 MINUTES
 	///Assoc list of listening client - next ambience time
 	var/list/ambience_listening_clients = list()
 	var/list/client_old_areas = list()
@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(ambience)
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ambience/fire(resumed)
+	return
 	if(!resumed)
 		currentrun = ambience_listening_clients.Copy()
 	var/list/cached_clients = currentrun
