@@ -6,7 +6,7 @@
 	desc = "A commerical announcement console, with built in transmitters."
 	icon_screen = "civ_bounty"
 	icon_keyboard = "tech_key"
-	circuit = /obj/item/circuitboard/computer/communications
+	circuit = /obj/item/circuitboard/computer/public_announcement
 
 	STATIC_COOLDOWN_DECLARE(crew_announce_cooldown)
 	/// how long crew messages can be

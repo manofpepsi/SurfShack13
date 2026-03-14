@@ -12,7 +12,6 @@ SUBSYSTEM_DEF(ambience)
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ambience/fire(resumed)
-	return
 	if(!resumed)
 		currentrun = ambience_listening_clients.Copy()
 	var/list/cached_clients = currentrun
