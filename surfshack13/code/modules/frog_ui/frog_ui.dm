@@ -76,7 +76,7 @@ SUBSYSTEM_DEF(frogui)
 		close_ui(user, source)
 		return
 
-	if(atom_ui_flags[source] & ~FROG_UI_IGNORE_PROXIMITY)
+	if(!(atom_ui_flags[source] & FROG_UI_IGNORE_PROXIMITY))
 		if(user.default_can_use_topic(source) != UI_INTERACTIVE)
 			close_ui(user, source)
 			return
