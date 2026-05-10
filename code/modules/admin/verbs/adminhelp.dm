@@ -88,7 +88,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	for(var/I in l2b)
 		var/datum/admin_help/AH = I
 		dat += "[span_adminnotice("[span_adminhelp("Ticket #[AH.id]")]: <A href='byond://?_src_=holder;[HrefToken()];ahelp=[REF(AH)];ahelp_action=ticket'>[AH.initiator_key_name]: [AH.name]</A>")]<br>"
-	dat+= "</html>"
+	dat += "</html>"
 
 	usr << browse(dat.Join(), "window=ahelp_list[state];size=600x480")
 
@@ -669,6 +669,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	dat += "<br><b>Log:</b><br><br>"
 	for (var/interaction in player_interactions)
 		dat += "[interaction]<br>"
+
+	dat += "</html>"
 
 	var/datum/browser/player_panel = new(usr, "ahelp[id]", 0, 620, 480)
 	player_panel.set_content(dat.Join())
