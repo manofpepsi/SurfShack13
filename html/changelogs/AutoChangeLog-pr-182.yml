@@ -1,0 +1,5 @@
+author: "IndieanaJones"
+delete-after: True
+changes:
+  - bugfix: "A random Maint area on Wawastation had two lights on it. Now it doesn't."
+  - refactor: "Bloodsucker UI works better now."
