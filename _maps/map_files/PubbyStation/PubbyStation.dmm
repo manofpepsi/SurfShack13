@@ -8151,9 +8151,7 @@
 /turf/open/floor/iron/white/textured_corner{
 	dir = 4
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "aCG" = (
 /obj/structure/table,
 /obj/item/ai_module/supplied/quarantine,
@@ -9832,14 +9830,10 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "aJd" = (
 /turf/closed/wall,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "aJk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -15051,9 +15045,7 @@
 "bcg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "bch" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/box/white,
@@ -21581,9 +21573,7 @@
 /turf/open/floor/iron/white/textured_corner{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "bGV" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Supply Bay Space Bridge Access"
@@ -22586,9 +22576,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "bLT" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -23038,9 +23026,7 @@
 	},
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white/textured_half,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "bNW" = (
 /obj/structure/chair/office{
 	dir = 4
@@ -26252,9 +26238,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
 /turf/open/floor/iron/white/textured_half,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "ccL" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/candle_box{
@@ -31677,9 +31661,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "ddM" = (
 /obj/machinery/duct,
 /turf/open/floor/iron/white,
@@ -31899,9 +31881,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "diQ" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -36257,9 +36237,7 @@
 /area/station/hallway/primary/fore)
 "eNp" = (
 /turf/closed/wall/r_wall,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "eNw" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -39079,9 +39057,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood/large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "fNY" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 1;
@@ -40122,9 +40098,7 @@
 /turf/open/floor/iron/white/textured_corner{
 	dir = 4
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "glf" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
@@ -42718,9 +42692,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "hok" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -49597,9 +49569,7 @@
 "jVS" = (
 /obj/effect/spawner/random/trash/grime,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "jWY" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -54096,9 +54066,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "lIF" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 4
@@ -59884,9 +59852,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "nLR" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner,
@@ -60154,9 +60120,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "nRo" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
@@ -61187,9 +61151,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "oon" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -64303,9 +64265,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/textured_corner,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "psK" = (
 /turf/open/floor/iron/dark/textured_large,
 /area/station/science/ordnance)
@@ -70849,9 +70809,7 @@
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "rXV" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -72320,9 +72278,7 @@
 	},
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "syO" = (
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/trimline/brown/filled/line{
@@ -80583,9 +80539,7 @@
 "vyL" = (
 /obj/structure/chair,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "vyT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -82459,9 +82413,7 @@
 /turf/open/floor/iron/white/textured_corner{
 	dir = 8
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "whm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/random/directional/south,
@@ -83030,9 +82982,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "wsN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner{
@@ -83945,9 +83895,7 @@
 /turf/open/floor/iron/white/textured_corner{
 	dir = 8
 	},
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "wKM" = (
 /obj/structure/flora/bush/leavy,
 /turf/open/misc/asteroid,
@@ -85868,9 +85816,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/mid_joiner,
 /turf/open/floor/iron/white/textured_half,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "xwq" = (
 /obj/structure/reagent_dispensers/plumbed{
 	name = "service reservoir"
@@ -87299,9 +87245,7 @@
 	desc = "For the safety of the station."
 	},
 /turf/open/floor/iron/white/textured_large,
-/area/station/medical/psychology{
-	name = "\improper Asylum"
-	})
+/area/station/medical/psychology)
 "ydL" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
 	dir = 1
