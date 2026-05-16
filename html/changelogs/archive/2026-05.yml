@@ -96,3 +96,8 @@
       ingame) and delete the unneeded ones. Despite some of the tags, changelogs should
       generally represent how a player might be affected by the changes rather than
       a summary of the PR''s contents. -->'
+2026-05-16:
+  IndieanaJones:
+  - rscadd: AIs can examine now.
+  Twaticus:
+  - rscadd: Pubbystation and accompanying shuttles
