@@ -1,4 +1,0 @@
-author: "hyperjll"
-delete-after: True
-changes:
-  - bugfix: "Players are no longer told they've earned 'Credits' instead of 'Doubloons'."

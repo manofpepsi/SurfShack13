@@ -101,3 +101,9 @@
   - rscadd: AIs can examine now.
   Twaticus:
   - rscadd: Pubbystation and accompanying shuttles
+2026-05-17:
+  IndieanaJones:
+  - bugfix: A random Maint area on Wawastation had two lights on it. Now it doesn't.
+  - refactor: Bloodsucker UI works better now.
+  hyperjll:
+  - bugfix: Players are no longer told they've earned 'Credits' instead of 'Doubloons'.
