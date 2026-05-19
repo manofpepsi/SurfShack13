@@ -1,4 +1,0 @@
-author: "hyperjll"
-delete-after: True
-changes:
-  - admin: "Admins can now print any player's Doubloon balance directly to admin log."

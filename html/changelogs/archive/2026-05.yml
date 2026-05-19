@@ -119,3 +119,11 @@
   - code_imp: sm surge, mice migration, blackout, grav gen blackout, comms black out,
       and carp migration can only happen on 15 pop
   - code_imp: some of the listed events have lower probablities
+2026-05-19:
+  IndieanaJones:
+  - bugfix: /datum/gas_machine_connector will abstract_move() if their parent also
+      abstract_move()s, preventing a runtime
+  forgman6:
+  - code_imp: removed some things from trash spawners if there is no atmosphere
+  hyperjll:
+  - admin: Admins can now print any player's Doubloon balance directly to admin log.
