@@ -127,3 +127,33 @@
   - code_imp: removed some things from trash spawners if there is no atmosphere
   hyperjll:
   - admin: Admins can now print any player's Doubloon balance directly to admin log.
+2026-05-20:
+  ElGitificador:
+  - balance: syndi bombs cost 8 TC now
+  IndieanaJones:
+  - bugfix: Space dragons' eyes, teeths and claws (and shark form's underside) are
+      once again of a different color than the rest of the body.
+  - refactor: Rewrote some of HUD code so they're no longer colored in their owner's
+      color
+  - bugfix: Space dragons no longer turn invisible when toggling seethrough mode
+  - bugfix: fixed seethrough mob offsetting your sprite
+  Twaticus:
+  - image: gooning outfit
+  - rscadd: ports a handful of sprite related prs. trash carts, cardboard boxes, maid
+      outfit, schoolgirl outfit, sleeper, harvester, crafters toolbox, hoodies, nuggets/wing/fry
+      boxes
+  ZealousZeke:
+  - balance: Nooartrium no longer applies its side effects at double speed.
+  hyperjll:
+  - admin: Admins are sent messages to document any Pre-Round Store purchases.
+  - qol: Ghosts can now nanite-scan people, in addition to their other scan-abilities.
+  - server: Restarting the round via the voting system, if passed, will no longer
+      award Doubloons to ANY players should the round have not lasted at LEAST 20
+      minutes.
+  - rscadd: Emitter Diode Disks have been implemented! Allowing emitters to heal,
+      ignite, drain sanity, drain stamina, attract, and more!
+  - rscadd: The Syndicate are now offering explosive diode disks for aspiring explosive
+      engineers!
+  - rscadd: Emitters are now compatible with Circuits via the USB cable!
+  - image: Emitters now use overlays and have emissives (they glow in the dark)
+  - rscadd: Added 'Crossing' variants to Curved and Junction transit tubes.
