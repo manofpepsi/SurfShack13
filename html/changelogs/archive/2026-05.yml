@@ -157,3 +157,11 @@
   - rscadd: Emitters are now compatible with Circuits via the USB cable!
   - image: Emitters now use overlays and have emissives (they glow in the dark)
   - rscadd: Added 'Crossing' variants to Curved and Junction transit tubes.
+2026-05-21:
+  ElGitificador:
+  - sound: added sound feedback for supplexing rods
+  IndieanaJones:
+  - balance: Dubloon gain for playing certain jobs has been nerfed and no longer stacks
+      for Head of Security. Silicons now also get a bonus.
+  hyperjll:
+  - rscdel: Cryogelidia will no longer be required to cure any diseases.
