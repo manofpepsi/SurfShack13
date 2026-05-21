@@ -1,0 +1,4 @@
+author: "hyperjll"
+delete-after: True
+changes:
+  - qol: "Nanite Design icons in the tech tree are now color-coded to their program's category."
