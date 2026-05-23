@@ -1,0 +1,7 @@
+author: "forgman6"
+delete-after: True
+changes:
+  - rscadd: "voice chat rooms for different mobs"
+  - rscadd: "two voice indicators for different mobs."
+  - code_imp: "moved voicechat into correct subfolder"
+  - refactor: "voice indicators are refactored to be a bit better, and mouse transparent"
