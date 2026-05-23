@@ -1,4 +1,0 @@
-author: "hyperjll"
-delete-after: True
-changes:
-  - bugfix: "Security roles (& the captain) can no longer use Antag Tokens. The tokens will just be refunded."

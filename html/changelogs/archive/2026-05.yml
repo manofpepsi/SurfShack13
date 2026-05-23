@@ -174,3 +174,21 @@
   hyperjll:
   - qol: Nanite Design icons in the tech tree are now color-coded to their program's
       category.
+2026-05-23:
+  ZealousZeke:
+  - balance: Overdose thresholds now positively scale with high purity
+  - bugfix: Chemmaster no longer rounds reagent amounts when trying to transfer a
+      custom amount
+  cocothegogo:
+  - rscadd: MiniStation has been redeployed to active duty as MiniSurf.
+  forgman6:
+  - rscadd: voice chat rooms for different mobs
+  - rscadd: two voice indicators for different mobs.
+  - code_imp: moved voicechat into correct subfolder
+  - refactor: voice indicators are refactored to be a bit better, and mouse transparent
+  hyperjll:
+  - bugfix: conveyors now remember what they should be doing after losing and regaining
+      power.
+  - bugfix: Security roles (& the captain) can no longer use Antag Tokens. The tokens
+      will just be refunded.
+  - rscdel: Removed two unused reagents.
