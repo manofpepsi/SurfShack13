@@ -192,3 +192,7 @@
   - bugfix: Security roles (& the captain) can no longer use Antag Tokens. The tokens
       will just be refunded.
   - rscdel: Removed two unused reagents.
+2026-05-24:
+  cocothegogo:
+  - bugfix: minor minisurf changes
+  - rscadd: added maint kitchen to med maints
