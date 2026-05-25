@@ -1,0 +1,4 @@
+author: "dwasint"
+delete-after: True
+changes:
+  - rscadd: "Ghosts now have runechat"
