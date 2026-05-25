@@ -1,0 +1,12 @@
+author: "ZealousZeke"
+delete-after: True
+changes:
+  - qol: "Big Manipulator: Now you can change manipualtor work speed to slow down manipulator manipulations."
+  - qol: "Big Manipulator: Use mode now can work with \"empty hand\" - monkey worker will use its paw to interact with objects without requiring item in paw."
+  - qol: "Big Manipulator: Manipulator now can be locked with using id prevents anybody else configurate manipulator settings."
+  - bugfix: "Big Manipulator: Fixes random disappearance of a part of the manipulator ui."
+  - bugfix: "Harvesting botany plants actually uses the right drop location. Botany plants harvested by monkey hardworkers on big manipulators harvesting using a full plant bag no longer puts the resulting items inside of the big manipulator."
+  - qol: "Added screentips to the big manipulator."
+  - bugfix: "You can actually open the big manipulator's wires UI while holding an assembly."
+  - refactor: "Reworked the Big Manipulators UI"
+  - refactor: "Minor Big Manipulator code refactoring"
