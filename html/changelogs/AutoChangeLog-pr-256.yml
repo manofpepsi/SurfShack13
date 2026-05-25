@@ -1,0 +1,6 @@
+author: "cocothegogo"
+delete-after: True
+changes:
+  - rscadd: "REDESIGNED ATMOS"
+  - rscadd: "clown and mime offices"
+  - bugfix: "atmos"
