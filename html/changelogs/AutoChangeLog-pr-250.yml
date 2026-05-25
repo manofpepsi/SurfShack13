@@ -1,6 +1,0 @@
-author: "cocothegogo"
-delete-after: True
-changes:
-  - rscadd: "extended maint shafts around xenobio"
-  - rscadd: "1 extra small room in med maint"
-  - bugfix: "fixed atmos piping issues"

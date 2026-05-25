@@ -196,3 +196,8 @@
   cocothegogo:
   - bugfix: minor minisurf changes
   - rscadd: added maint kitchen to med maints
+2026-05-25:
+  cocothegogo:
+  - rscadd: extended maint shafts around xenobio
+  - rscadd: 1 extra small room in med maint
+  - bugfix: fixed atmos piping issues
